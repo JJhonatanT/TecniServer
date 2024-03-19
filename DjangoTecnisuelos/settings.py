@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
     
 from pathlib import Path
 import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 from reportlab.pdfgen import canvas
 import pymysql
 pymysql.install_as_MySQLdb()
@@ -173,17 +174,11 @@ WSGI_APPLICATION = 'DjangoTecnisuelos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tecnidjango',
-        'USER': 'root',
-        'PASSWORD': 'root1234',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
